@@ -1,0 +1,31 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='private/css/compiled/form-showcase.css') }}">{% extends 'private.html' %} {% block content %}
+
+<div id="pad-wrapper">
+    <div class="row header">
+        <div class="col-md-12">
+            <h3>Edit tag</h3>
+        </div>
+    </div>
+
+    <div id="pad-wrapper" class="form-page">
+        <div class="row form-wrapper">
+            <!-- left column -->
+            <div class="col-md-8 column">
+                {% from "_formhelpers.html" import render_field %}
+                {% from "_formhelpers.html" import render_field_2 %}
+                <form action="/tag/{{tag._id}}/edit" method=post>
+                    <dl>
+                        {{ render_field(form.type, class="ui-select") }} 
+                        {{ render_field_2(form.name, class="form-control inline-input")}} 
+                        <input name="name" value = "{{tag.name}}" class="form-control inline-input">
+                        {{ render_field(form.price, class="form-control inline-input", placeholder="ex. 10 $, Cup of tea or Hugs and kisses") }} 
+                        {{ render_field(form.code, class="form-control inline-input", placeholder="ex. xGHGd") }}
+                    </dl>
+                    <p>
+                    <input type="submit" class="btn-flat default" value="Change">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

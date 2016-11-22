@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1250px" height="1250px" viewBox="0 0 1250 1250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-12" sketch:type="MSArtboardGroup" transform="translate(-11.000000, -11.000000)">
+            <g id="Group" sketch:type="MSLayerGroup">
+                <path d="M11,636 C11,290.816919 290.816919,11 636,11 C981.189394,11 1261,290.816919 1261,636 C1261,981.183081 981.189394,1261 636,1261 C290.816919,1261 11,981.183081 11,636 L317.24852,838.69837" id="Fill-1304" fill="#F6A623" sketch:type="MSShapeGroup" transform="translate(636.000000, 636.000000) rotate(-1.000000) translate(-636.000000, -636.000000) "></path>
+                <path d="M366.237207,549.615519 C407.692607,493.9712 491.706895,445.950136 594.286993,426.010585 C752.034113,395.347651 893.950235,442.703656 911.265542,531.783188 C928.580849,620.862721 814.738384,717.933159 656.991264,748.596093 C551.236757,769.152687 452.597386,754.644193 393.846492,716.006751 C391.429543,773.782563 374.257469,815.607562 346.353955,821.031455 C304.504812,829.166105 320.901889,739.408247 300.899724,636.506028 C280.897559,533.60381 232.070569,456.524225 273.919712,448.389576 C305.468316,442.257148 341.728938,484.407942 366.237207,549.615519 Z" id="Oval-1" fill="#C3493F" sketch:type="MSShapeGroup"></path>
+                <ellipse id="Oval-3" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="737.954002" cy="546.335938" rx="83.5793124" ry="88.3302083"></ellipse>
+                <path d="M778.567393,573.65314 C797.3393,570.004251 809.876163,553.254858 806.56926,536.242321 C803.262358,519.229784 785.363949,508.396408 766.592041,512.045298 C747.820134,515.694187 735.283272,532.44358 738.590174,549.456117 C741.897076,566.468653 759.795486,577.302029 778.567393,573.65314 Z" id="Oval-4" fill="#C3493F" sketch:type="MSShapeGroup"></path>
+                <path d="M700.171948,698.900457 C690.457131,689.106314 685.727951,680.839464 683.781252,674.103491 C678.643518,656.325888 693.776544,653.317387 686.900145,656.931988 C677.418263,661.91617 668.465573,676.58656 692.224387,706.476738 C704.715921,722.191923 711.537044,732.31623 719.822631,734.255264 C727.296176,736.00426 733.971463,730.999576 738.468111,728.635899 C747.949993,723.651718 735.526146,734.543336 700.171948,698.900457 Z" id="Oval-5" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <text id="Contact-my-owner-and" sketch:type="MSTextLayer" font-family="Bryant" font-size="94" font-weight="bold" sketch:alignment="middle" fill="#C3493F">
+                    <tspan x="153.378" y="902">Contact my owner and </tspan>
+                    <tspan x="336.96" y="1013">get rewarded!</tspan>
+                </text>
+                <text id="I-am-lost!" sketch:type="MSTextLayer" font-family="Bryant" font-size="205" font-weight="bold" sketch:alignment="middle" fill="#C3493F">
+                    <tspan x="186.395" y="375">I am lost!</tspan>
+                </text>
+                <text id="http://tagli.io/xKOD" sketch:type="MSTextLayer" font-family="Bryant" font-size="76" font-weight="bold" sketch:alignment="middle" fill="#000000">
+                    <tspan x="285.762" y="1121">http://tagli.io/XXXX</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

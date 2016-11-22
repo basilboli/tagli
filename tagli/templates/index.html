@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Tagli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='public/css/compiled/theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='public/css/vendor/animate.css') }}">
+
+    <!-- javascript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='public/js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{url_for('static', filename='public/js/theme.js') }}"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("3c514518762fb87e2d6339464db40efd");</script><!-- end Mixpanel -->
+</head>
+
+<body id="home">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P4D7L7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4D7L7');</script>
+<!-- End Google Tag Manager -->
+
+    <header class="navbar navbar-inverse hero" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    <img src="{{ url_for('static', filename='private/img/logo.png') }}" class="img-responsive" alt="logo" />
+                </a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/shop" class="button-outline">
+                            Buy stickers</b>
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="/signin">
+                            Sign in</b>
+                        </a> 
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="hero">
+        <div class="container">
+            <h1 class="hero-text animated fadeInDown">
+                <strong>tag</strong>s for everyday
+                <strong>li</strong>fe.
+            </h1>
+            <p class="sub-text animated fadeInDown">
+                Smart stickers for the things that matter to you
+            </p>
+            <!-- <p class="sub-text animated fadeInDown">
+                Attach tags to the objects you care and let the magic happen.                
+            </p> -->
+            <!-- <p class="sub-text animated fadeInDown">
+                "Tag or sticker is a piece of printed paper or plastic with pressure sensitive adhesive on one side" #wtf #wiki
+            </p> -->
+            <div class="cta animated fadeInDown">
+                <a href="#features" class="button-outline">How it works</a>
+                <a href="/signup" class="button">Get Started!</a>
+            </div>
+            <!-- <div class="img"></div> -->
+        </div>
+    </div>
+
+
+    <div id="features">
+        <div class="container">
+            <div class="row header">
+                <div class="col-md-12">
+                    <h2>Lost your object? Tagli is a perfect way to help you.</h2>
+                    <p><strong>taglifish</strong> are the stickers helping you reward people who find the items you care about.</p>
+                </div>
+            </div>
+            <div class="row feature">
+                <div class="col-md-6 info">
+                    <h4>Great design.</h4>
+                    <p>
+                        Do you know the story that redfish doesn't have a memory? Our <strong>taglifish</strong> is intelligent one and will memorize your object for long a time.
+                    </p>
+                </div>
+                <div class="col-md-6 image">
+                    <img src="{{url_for('static', filename='public/images/feature1.png') }}" class="img-responsive" alt="feature1" />
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row feature backwards">
+                <div class="col-md-6 info">
+                    <h4>Reward.</h4>
+                    <p>
+                        Define your reward for people doing good.
+                    </p>
+                </div>
+                <div class="col-md-6 image">
+                    <img src="{{url_for('static', filename='public/images/feature2.png') }}" class="img-responsive" alt="feature2" />
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row feature">
+                <div class="col-md-6 info">
+                    <h4>Connected.</h4>
+                    <p>
+                        The person who will find your object could contact you using chat-like interface. You will be notified immediately. 
+                    </p>
+                </div>
+                <img src="{{url_for('static', filename='public/images/feature3.png') }}" class="img-responsive" alt="feature3" />
+            </div>
+            <div class="divider"></div>
+            <!-- <div class="row feature backwards">
+                <div class="col-md-6 info">
+                    <h4>Karmaful.</h4>
+                    <p>
+                        You are in the teritory of good karma. Boost your karma
+                    </p>
+                </div>
+                <div class="col-md-6 image">
+                    <img src="{{url_for('static', filename='public/images/feature4.png') }}" class="img-responsive" alt="feature4" />
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div id="pricing">
+        <div class="container">
+            <div class="row header">
+                <div class="col-md-12">
+                    <h3>Plan</h3>
+                </div>
+            </div>
+            <div class="row charts">
+
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="chart featured">
+                        <div class="popular">Most popular</div>
+                        <div class="quantity">
+                            <span class="dollar">€</span>
+                            <span class="price">3,99</span>                            
+                        </div>
+                        <div class="plan-name">Start</div>
+                        <div class="specs">
+                            <div class="spec">
+                                <span class="variable">4</span>
+                                stickers
+                            </div>
+                            <!-- <div class="spec">                                
+                                <span class="variable">2 year</span> tags management                                
+                            </div> -->
+                        </div>
+                        <a class="btn-signup button-clear" href="/shop">
+                            <span>See more or Buy</span>
+                        </a>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+
+    <div id="cta">
+        <p>
+            Join the community of nice people with great karma.
+        </p>
+        <a href="/signup">
+            Join today
+        </a>
+    </div>
+
+        <div id="footer-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 menu">
+                    <h3>Overview</h3>
+                    <ul>
+                        <li>
+                            <a href="#features">Features</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 menu">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li>
+                            <a href="/shop">Shop</a>
+                            <a href="/shop" class="hiring">
+                                Limited offers!
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blog.html">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 menu">
+                    <h3>Social</h3>
+                    <ul>
+                        <li>
+                            <a href="http://twitter.com/taglifish">Twitter</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 newsletter">
+
+                    <a href="http://twitter.com/taglifish">
+                        <img src="{{url_for('static', filename='public/images/social/social-tw.png') }}"alt="twitter" />
+                    </a>                    
+                </div>
+            </div>
+            <div class="row credits">
+                <div class="col-md-12">
+                    Copyright © 2014. Tagli
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

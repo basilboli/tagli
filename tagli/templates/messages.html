@@ -1,0 +1,42 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='private/css/compiled/user-profile.css') }}">{% extends 'private.html' %} {% block content %}
+<div id="pad-wrapper" class="user-profile">
+    <div class="row profile">
+        <div class="col-md-6 text-center">
+            <h2 class="h2">Conversation with {{conversation.from_user_id}}</h2>
+        </div>
+        <!-- bio, new note & orders column -->
+        <div class="col-md-9 bio">
+            <div>
+                <!-- new comment form -->
+                <div class="col-md-12 section comment">
+                    <h6>Write a personal message</h6>
+                    <form action="/domessage/{{conversation._id}}" method=post>
+                        <input type="hidden" name="tag_id" value="{{conversation.tag._id}}">
+                        <textarea name="text" placeholder="Yo, brother"></textarea>
+                        <div class="col-md-12 submit-box pull-right">
+                            <input type="submit" class="btn btn-danger" value="Send">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% for message in conversation.messages %}
+    <!-- header -->
+    <div class="row header">
+        <div class="col-md-8 panel">
+            <img src="{{ url_for('static', filename='private/img/contact-img.png') }}" alt="contact" class="img-circle avatar hidden-phone" />
+            <h6 class="name">{{message.from_user_id}}</h6>
+            <small>{{message.post_dt.strftime('%Y-%m-%d %HH:%mm')}}</small>
+            <br>
+            <br>
+            <span>{{message.text}}</span>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}

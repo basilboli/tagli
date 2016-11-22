@@ -1,0 +1,33 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='private/css/compiled/form-showcase.css') }}">
+{% extends 'private.html' %} 
+{% block content %}
+
+<div id="pad-wrapper">
+    <div class="row">
+        <div class="col-md-6 col-center text-center">
+            <h2 class="h2">Add new tag</h2>
+            <p class="">here you can add new tag for the thing you care about</p>
+        </div>
+    </div>
+
+    <div id="pad-wrapper" class="form-page">
+        <div class="row form-wrapper">
+            <!-- left column -->
+            <div class="col-md-8 column">
+                {% from "_formhelpers.html" import render_field %}
+                <form action="{{ url_for('.dotag') }}" method=post>
+                    <dl>
+
+                        {{ render_field(form.type) }}                         
+                        {{ render_field(form.name, class="form-control inline-input", alt="tag", placeholder="ex. My lovely MacBook Pro")}} 
+                        {{ render_field(form.price, class="form-control inline-input", placeholder="ex. 10 $, Cup of tea or Hugs and kisses") }} 
+                        {{ render_field(form.code, class="form-control inline-input", placeholder="ex. xGHGd") }}
+                    </dl>
+                    <p>
+                    <input type="submit" class="btn btn-danger" value="Add new tag">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

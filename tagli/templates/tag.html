@@ -1,0 +1,91 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='private/css/compiled/user-profile.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='private/css/compiled/form-wizard.css') }}">
+{% extends 'private-sideless.html' %} 
+{% block content %}
+<!-- main container .wide-content is used for this layout without sidebar :)  -->
+<div class="settings-wrapper" id="pad-wrapper">
+    <div class="row">
+    {% if not tag.user_id == g.user['user_id']%}                  
+        <h3>Hoorray!
+            <br>You have just found the object that belongs to someone.</h3>
+     {% endif %}       
+        <div class="col-md-12 col-xs-12">
+            <div id="fuelux-wizard" class="wizard row">
+                <ul class="wizard-steps">
+                    <li data-target="#step1">
+                        <span class="step">
+                            <img src="{{ url_for('static', filename='private/img/personal-info.png') }}" class="avatar img-circle" alt="avatar" />
+                        </span>
+                        <span class="title">Owner</span>
+                    </li>
+                    <li data-target="#step2">
+                        <span class="step">
+                            <i class="icon-{{tag.type}}"></i> 
+                        </span>
+                        <span class="title">{{tag.name}}</span>
+                    </li>
+                    <li data-target="#step2">
+                        <span class="step">
+                            <i class="icon-gift"></i> 
+                        </span>
+                        <span class="title">{{tag.price}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pad-wrapper" class="user-profile">
+    <div class="row profile">
+        {% if 'user_id' in session  %}
+
+        {% if not tag.user_id == g.user['user_id']%}                  
+        <!-- bio, new note & orders column -->
+        <div class="col-md-9 bio">
+            <div>
+                <h3>Contact the owner and get rewarded.</h3>                                   
+                <!-- new comment form -->
+                <div class="col-md-12 section comment">
+                    <p>Add some details how and when did you found the object</p>
+                    <form action="/domessage/new" method="post" >
+                        <input type="hidden" name="tag_id" value="{{tag._id}}">
+                        <textarea name="text" placeholder="Example : Hey, I have just found your phone in the Buddha Bar. My phone is 067XXXX."></textarea>
+                        <div class="col-md-12 submit-box pull-right">
+                            <input type="submit" class="btn-glow primary" value="Send message">
+                            <!-- <span>OR</span> -->
+                            <!-- <input type="reset" value="Claim better price" class="reset"> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class="col-md-9 bio">
+                <div>
+                    <h3>You are the owner, keep you object in safe place and never loose it.</h3>                                   
+                </div>
+            </div>
+
+        {% endif %}                  
+
+        {% else %}
+        <!-- bio, new note & orders column -->
+        <div class="col-md-9 bio">
+            <div>
+                <h3>To get in contact with owner and te rewarded please</h3>
+                <!-- new comment form -->
+                <div class="col-md-12 section comment">
+                    <div class="col-md-12 submit-box pull-right">
+                        <a class="btn-flat default" href="signin?next={{request.path}}">Sign in </a>
+                        <span>OR</span>
+                        <a class="btn-flat primary" href="signup?next={{request.path}}">Sign up today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<!-- end main container -->
+{% endblock %}

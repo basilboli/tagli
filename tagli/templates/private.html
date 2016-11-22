@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Detail Admin - Gallery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link href="{{url_for('static', filename='private/css/bootstrap/bootstrap.css') }}" rel="stylesheet" />
+    <link href="{{url_for('static', filename='private/css/bootstrap/bootstrap-overrides.css') }}" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='private/css/compiled/layout.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='private/css/compiled/elements.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='private/css/compiled/icons.css') }}" />
+
+    <!-- libraries -->
+    <link href="{{url_for('static', filename='private/css/lib/font-awesome.css') }}" type="text/css" rel="stylesheet" />
+
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='private/css/compiled/gallery.css') }}" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("3c514518762fb87e2d6339464db40efd");</script><!-- end Mixpanel -->
+</head>
+
+<body>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P4D7L7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4D7L7');</script>
+<!-- End Google Tag Manager -->
+
+    <!-- navbar -->
+    <header class="navbar navbar-inverse" role="banner">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" id="menu-toggler">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="{{ url_for('static', filename='private/img/logo.png') }}" class="img-responsive" alt="logo" />
+            </a>
+        </div>
+        <ul class="nav navbar-nav pull-right hidden-xs">
+            <li>
+                <a href="#" class="dropdown-toggle hidden-xs hidden-sm">
+                    {{g.user.name}}                    
+                </a>
+            </li>
+        </ul>
+    </header>
+    <!-- end navbar -->
+
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="/tags">
+                    <i class="icon-tags"></i>
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="/conversations">
+                    <i class="icon-envelope"></i>
+                    <span>Messages</span>
+                </a>
+            </li>
+            <li class="settings">
+                <a href="/shop" role="button">
+                    <i class="icon-shopping-cart"></i>
+                    <span>Buy stickers</span>
+                </a>
+            </li>
+            
+            <li class="settings">
+                <br>
+            </li>
+            <li class="settings">
+                <a href="/logout" role="button">
+                    <i class="icon-signout"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+    <!-- main container -->
+    <div class="content">
+
+        {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissable">
+            <i class="icon-exclamation-sign"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %} {% endif %} {% endwith %} {% block content %} {% endblock %}
+    </div>
+
+    <!-- this page scripts -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="{{url_for('static', filename='private/js/bootstrap.min.js') }}"></script>
+    <script src="{{url_for('static', filename='private/js/theme.js') }}"></script>
+    <script src="{{url_for('static', filename='private/js/tagli.js') }}"></script>
+</body>
+
+</html>

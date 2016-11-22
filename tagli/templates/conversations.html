@@ -1,0 +1,84 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='private/css/compiled/user-list.css') }}">{% extends 'private.html' %} {% block content %}
+
+<div id="pad-wrapper" class="users-list">
+    <div class="col-md-6 col-center text-center">
+        <h2 class="h2">Messages</h2>
+        <p class="">here you receive messages from nice people</p>
+    </div>
+
+    <!-- Users table (Desktop version)-->
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-3">
+                            From
+                        </th>
+                        <th class="col-md-3 hidden-xs">
+                            To
+                        </th>
+                        <th class="col-md-3 hidden-xs">
+                            <span class="line"></span>Object
+                        </th>
+                        <th class="col-md-2">
+                            <span class="line"></span>Messages
+                        </th>
+                        <th class="col-md-3 align-right ">
+                            <span class="line"></span>Last message date
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for conversation in conversations %}
+                    <!-- row -->
+                    <tr>
+                        <td>
+                            <img src="{{ url_for('static', filename='private/img/contact-img.png') }}" alt="contact" class="img-circle avatar hidden-phone" />{% if conversation.from_user_id == g.user['user_id']%}
+                            <a href="#" class="name">You</a>
+                            {% else %}
+                            <a href="#" class="name">{{conversation.from_user_id}}</a>
+                            {% endif %}
+                            <span class="subtext hidden-xs">Good man!</span>
+                        </td>
+                        <td class="hidden-xs">
+                            <img src="{{ url_for('static', filename='private/img/contact-img.png') }}" alt="contact" class="img-circle avatar hidden-phone" />{% if conversation.to_user_id == g.user['user_id']%}
+                            <a href="#" class="name">You</a>
+                            {% else %}
+                            <a href="#" class="name">{{conversation.to_user_id}}</a>
+                            {% endif %}
+                            <span class="subtext hidden-xs">Good man!</span>
+                        </td>
+                        <td class="hidden-xs">
+                            <a href="/{{conversation.tag.code_hash}}">
+                                <span class="badge label-success">{{conversation.tag.name}}</span>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/conversation/{{conversation._id}}">
+                                <span class="badge">See messages ({{conversation.count}})</span>
+                            </a>
+                        </td>
+                        <td class="align-right">
+                            <small class="pull-right">{{conversation.post_dt.strftime('%Y-%m-%d %HH:%mm')}}
+                            </small>
+                        </td>
+                    </tr>
+                    <!-- end row -->
+                    {% else %}
+                    <tr>
+                        <td>
+                            <p class="muted lead">Unbelievable. No conversations here so far</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- end users table -->
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+Flask==0.9
+Flask-Script==0.3.3
+Flask-WTF==0.8
+Jinja2==2.6
+MongoAlchemy==0.12.1
+Flask-Mail
+nose
+mock==1.0.1
+Flask-PyMongo
+wtforms
+cairosvg
+sh
+flask-login
+requests
+gunicorn

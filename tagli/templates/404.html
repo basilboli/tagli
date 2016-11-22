@@ -1,0 +1,43 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='private/css/compiled/gallery.css') }}">
+{% extends 'private-sideless.html' %} 
+{% block content %}
+
+<div class="gallery " id="pad-wrapper">
+
+<!-- blank state -->
+            <div class="no-gallery">
+                <div class="center">
+                    <img src="{{ url_for('static', filename='private/img/ghost.png') }}"/>
+                    <h3 class="text-muted">We can't find the page you are looking for.</h3>
+                    <p></p>
+                    <a data-toggle="modal" href="/" class="btn-flat white">Get me home</a>
+                </div>
+            </div>
+<!-- end blank state -->
+    
+</div>
+
+
+<div id="pad-wrapper" class="user-profile">
+    <div class="row profile">
+        {% if 'user_id' in session  %}
+        {% else %}
+        <!-- bio, new note & orders column -->
+        <div class="col-md-9 bio">
+            <div>
+                <h3>Thanks and keep searching!</h3>
+                <!-- new comment form -->
+                <div class="col-md-12 section comment">
+                    <div class="col-md-12 submit-box pull-right">
+                        <a class="btn-flat default" href="signin?next={{request.path}}">Sign in </a>
+                        <span>OR</span>
+                        <a class="btn-flat primary" href="signup?next={{request.path}}">Sign up today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<!-- end main container -->
+{% endblock %}
