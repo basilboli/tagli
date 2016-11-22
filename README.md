@@ -7,7 +7,7 @@ You will be notified immediately while preserving you privacy.
 
 # the sticker
 
-[sticker sample](static/sample.png)
+![sticker sample](https://raw.githubusercontent.com/basilboli/tagli/master/tagli/static/sample.png)
 
 # project status
 the project is no more supported 
