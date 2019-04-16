@@ -27,26 +27,26 @@ def send_welcome():
     return requests.post(
         "https://api.mailgun.net/v2/samples.mailgun.org/messages",
         auth=("api", "key-3ax6xnjp29jd6fds4gc373sgvjxteol0"),
-        data={"from": "Tagli Team <welcome@tagli.io>",
+        data={"from": "Tagli Team <welcome@sandbox129.mailgun.org",
               "to": ["basilboli@gmail.com"],
               "subject": "Welcome to the club.",
               "text": "Testing some Mailgun awesomness!"})    
 	
 def generate_codes(n, locale):
-	print "Generate %s new tags ..." %n
+	print ("Generate %s new tags ..." %n)
 	try:
 		sh.mkdir("output")
 	except ErrorReturnCode:
 	    print("folder already exists")
 	for i in range(n):
 		while True:
-			characters = re.sub('[0Oo5]', '', string.letters+string.digits)
-			code_hash ='p'+''.join(random.choice(characters) for i in range(3)) 
-			print "Trying code: ",code_hash
+			characters = re.sub('[0Oo5]', '', string.ascii_letters+string.digits)
+			code_hash ='x'+''.join(random.choice(characters) for i in range(3)) 
+			print ("Trying code: ",code_hash)
 			with app.app_context():
 				code = mongo.db.codes.find_one({"code_hash": code_hash})
 			if code is None:			
-				print "Ok."
+				print ("Ok.")
 				with app.app_context():
 					mongo.db.codes.insert({"code_hash": code_hash})			
 				generate_image(code_hash, locale)	
@@ -54,7 +54,7 @@ def generate_codes(n, locale):
 			else:
 				"Trying again ..."
 def generate_image(hash, locale):
-	print "Generating new image for ", hash 
+	print ("Generating new image for ", hash) 
 	template = "templates/tagli-{0}.svg".format(locale)	
 	write_from = "output/svg/tagli-{0}-{1}.svg".format(locale,hash)
 	write_to = "output/png/tagli-{0}-{1}.png".format(locale,hash)
@@ -72,7 +72,7 @@ def main():
 	if args.command == 'new':
 		generate_codes(args.number, args.locale)
 	else:
-		print "Error : Not supported command ..."	
+		print ("Error : Not supported command ...")	
 
 def read_file(filename):
     """Shortcut to return the whole content of a file as a byte string."""

@@ -1,7 +1,7 @@
-Flask==0.9
+Flask==1.0.2
 Flask-Script==0.3.3
 Flask-WTF==0.8
-Jinja2==2.6
+Jinja2==2.10.1
 MongoAlchemy==0.12.1
 Flask-Mail
 nose
@@ -13,3 +13,4 @@ sh
 flask-login
 requests
 gunicorn
+stripe

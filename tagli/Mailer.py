@@ -3,13 +3,14 @@
 import config
 import logging
 import requests
+import os
 
 # Mailer class provides mailing service using mailgun api
 class Mailer:
 	logger = logging.getLogger('app')
-	url   = "https://api.mailgun.net/v2/tagli.io/messages"
-	token = "key-4ut65uvelj2cjucyl3x4o-lrvazmpe-9"
-	_from = "Tagli Team <welcome@tagli.io>"
+	url   = "https://api.mailgun.net/v3/sandbox129.mailgun.org/messages"
+	token = os.environ['MAILGUN_KEY']
+	_from = "Tagli Team <welcome@sandbox129.mailgun.org>"
 
 	def load_template(self, filename):
 		f = open("./emails/" + filename)
@@ -39,5 +40,5 @@ class Mailer:
 	              "bcc": "basilboli+tagli@gmail.com",
 	              "subject": subject,
 	              "html": file_content})
-		print message.text	
+		print (message.text)	
 		return	

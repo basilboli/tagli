@@ -10,30 +10,29 @@
 
 from flask import Flask, request, redirect, render_template, url_for, flash, abort, session, g, flash,_app_ctx_stack
 from bson.objectid import ObjectId
-from flask.ext.pymongo import PyMongo
+from flask_pymongo import PyMongo
 from werkzeug import check_password_hash, generate_password_hash
 from jinja2 import TemplateNotFound
 import datetime
 import uuid
 from Mailer import Mailer
-from urlparse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin
 import stripe
 import os
 
 from wtforms import Form, BooleanField, StringField, SelectField, validators
 
 stripe_keys = {
-    'secret_key': os.environ['LIVE_SECRET_KEY'],
-    'publishable_key': os.environ['LIVE_PUBLISHABLE_KEY']
+    'secret_key': os.environ['STRIPE_LIVE_SECRET_KEY'],
+    'publishable_key': os.environ['STRIPE_LIVE_PUBLISHABLE_KEY']
 }
 
 stripe.api_key = stripe_keys['secret_key']
 
-# configuration
-DATABASE = 'tagli'
-
 app = Flask(__name__)
+app.config["MONGO_URI"] = "mongodb://mongo:27017/tagli"
 app.secret_key = 'tagli'
+
 mongo  = PyMongo(app)
 mail = Mailer() 
 
@@ -185,7 +184,7 @@ def dosignup():
 
 
 @app.route('/tags')
-def showtags():
+def tags():
     if g.user:
         print("Checking tags ...")
         tags_count = mongo.db.tags.find({'user_id':g.user['user_id']}).count()
@@ -197,7 +196,7 @@ def showtags():
 
 
 @app.route('/tag')
-def newtag():
+def tag():
     print("Adding new tag ...")
     form = TagForm()
     return render_template('newtag.html',form = form)
@@ -302,7 +301,7 @@ def searchtag():
 
 @app.route('/domessage/<conversation_id>', methods=['POST'])
 def domessage(conversation_id):
-    print "yo domessage"   
+    print ("yo domessage")   
     tag_id = request.form['tag_id']
     print("posting new message for tag %s" % tag_id)
     tag = mongo.db.tags.find_one({'_id': ObjectId(tag_id)})

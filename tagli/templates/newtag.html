@@ -15,7 +15,7 @@
             <!-- left column -->
             <div class="col-md-8 column">
                 {% from "_formhelpers.html" import render_field %}
-                <form action="{{ url_for('.dotag') }}" method=post>
+                <form action="{{ url_for('.newtag') }}" method=post>
                     <dl>
 
                         {{ render_field(form.type) }}                         

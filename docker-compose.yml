@@ -1,0 +1,22 @@
+version: '3'
+services:
+  tagli:
+    build: .
+    image: "tagli:${TAG}"    
+    container_name: tagli
+    hostname: tagli
+    environment:
+      - APP_MODULE
+      - STRIPE_LIVE_SECRET_KEY
+      - STRIPE_LIVE_PUBLISHABLE_KEY
+      - MAILGUN_KEY
+    ports:
+      - 8080:80
+  mongo:
+    image: mongo
+    hostname: mongo
+    container_name: mongo  
+    ports:
+      - 27017:27017
+    volumes:
+      - /data/db:/data/db

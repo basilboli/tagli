@@ -1,8 +1,8 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from flask.ext.pymongo import PyMongo
-from flask.ext.script import Manager, Server
+from flask_pymongo import PyMongo
+from flask_script import Manager, Server
 from Mailer import Mailer
 
 manager = Manager(app)
